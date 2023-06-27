@@ -1,4 +1,4 @@
-const production = process.env.NODE_ENV === 'production'
+const production = false// process.env.NODE_ENV === 'production'
 function babelOptions() {
   return {
     plugins: production ? ['transform-remove-console'] : []
@@ -13,7 +13,7 @@ module.exports = {
     ['@snowpack/plugin-svelte', {
       preprocess: require('svelte-preprocess')({ // 스벨트 전처리 옵션
         scss: {
-          prependData: '@import "./src/scss/main.scss"'
+          prependData: '@import "./src/scss/main.scss";'
         },
         postcss: {
           plugins: [
