@@ -4,6 +4,17 @@ module.exports = {
     src: '/_dist_' // src 디렉토리에 있는 내용을 해당 경로로 빌드
   }, 
   plugins: [ // 설치한 plugin 연결 부분
-    '@snowpack/plugin-svelte'
+    ['@snowpack/plugin-svelte', {
+      preprocess: require('svelte-preprocess')({ // 스벨트 전처리 옵션
+        scss: {
+          prependData: '@import "./src/scss/main.scss"'
+        },
+        postcss: {
+          plugins: [
+            require('autoprefixer')()
+          ]
+        }
+      })
+    }]
   ]
 }
