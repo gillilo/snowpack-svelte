@@ -49,6 +49,6 @@
 
 <style lang="scss">
   header :global(a.active) {
-    color: red;
+    color: $color--primary;
   }
 </style>
