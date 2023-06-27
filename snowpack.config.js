@@ -1,4 +1,4 @@
-const production = false// process.env.NODE_ENV === 'production'
+const production = process.env.NODE_ENV === 'production'
 function babelOptions() {
   return {
     plugins: production ? ['transform-remove-console'] : []
@@ -10,7 +10,7 @@ module.exports = {
     src: '/_dist_' // src 디렉토리에 있는 내용을 해당 경로로 빌드
   }, 
   plugins: [ // 설치한 plugin 연결 부분
-    ['@snowpack/plugin-svelte', {
+    ['@snowpack/plugin-svelte', { // option을 안주면 주변경로의 svelte.config.js를 option으로 가져다가 씀
       preprocess: require('svelte-preprocess')({ // 스벨트 전처리 옵션
         scss: {
           prependData: '@import "./src/scss/main.scss";'
