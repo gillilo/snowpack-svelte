@@ -1,10 +1,17 @@
 <script>
-  import Router from 'svelte-spa-router'
+  import { fade } from 'svelte/transition'
+  import Router, { location } from 'svelte-spa-router'
   import routes from '~/routes'
   import Header from "~/components/Header.svelte"
 </script>
 
 <Header />
-<Router {routes} />
+{#key $location}
+  <div in:fade>
+    <Router 
+      {routes} 
+      restoreScrollState={true} />
+  </div>
+{/key}
 
 <style lang="scss"></style>
