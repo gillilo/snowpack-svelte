@@ -27,5 +27,8 @@ module.exports = {
       transformOptions: babelOptions() // 일반적인 js에서 콘솔 지우는 것
     }],
     '@snowpack/plugin-dotenv'
-  ]
+  ],
+  alias: {
+    '~': './src' // 별칭: snowpack.config.js 기준 경로
+  }
 }
